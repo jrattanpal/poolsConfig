@@ -2,8 +2,8 @@
 const express = require('express')
 const path = require('path')
 const PORT = process.env.PORT || 5000
-const pools = require('lib/pools');
-const poolsDev = require('lib/poolsDev');
+const pools = require('./lib/pools');
+const poolsDev = require('./lib/poolsDev');
 
 express()
   .use(express.static(path.join(__dirname, 'public')))
