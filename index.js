@@ -4,6 +4,7 @@ const path = require('path')
 const PORT = process.env.PORT || 5000
 const pools = require('./lib/pools');
 const poolsDev = require('./lib/poolsDev');
+const poolsPre = require('./lib/poolsPre');
 
 express()
   .use(express.static(path.join(__dirname, 'public')))
@@ -11,5 +12,6 @@ express()
   .set('view engine', 'ejs')
   .get('/pools', (req, res, next) => res.send(pools))
   .get('/pools-dev', (req, res, next) => res.send(poolsDev))
+  .get('/pools-pre', (req, res, next) => res.send(poolsPre))
   .get('/', (req, res) => res.render('pages/index'))
   .listen(PORT, () => console.log(`Listening on ${ PORT }`))
